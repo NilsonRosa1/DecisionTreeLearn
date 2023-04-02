@@ -14,7 +14,7 @@ clf.fit(X, y)
 
 # Gerando a representação gráfica da árvore de decisão
 dot_data = export_graphviz(clf, out_file=None,
-                           feature_names=['Latir', 'Miar','Sem Som','Canta'],
+                           feature_names=['Latir', 'Miar','Canta','Sem Som'],
                            class_names=['Gato', 'Cachorro','Papagaio', 'Peixe'],
                            filled=True, rounded=True,
                            special_characters=True)

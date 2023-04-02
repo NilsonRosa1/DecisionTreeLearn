@@ -2,28 +2,29 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_graphviz
 import graphviz
 
-# Criando a matriz de entrada X e o vetor de saída y
+#Creating the input matrix X and output vector y
 X = [[0, 1,0,0], [1, 0,0,0],[1,1,0,0],[0,0,0,0]]
-y = ['gato', 'cachorro','papagaio','peixe']
+y = ['cat', 'dog','parrot','fish']
 
-# Criando uma instância da classe DecisionTreeClassifier
+#Creating an instance of the DecisionTreeClassifier class
 clf = DecisionTreeClassifier()
 
-# Treinando o modelo
+#Training the model
 clf.fit(X, y)
 
-# Gerando a representação gráfica da árvore de decisão
+#Generating the graphical representation of the decision tree
 dot_data = export_graphviz(clf, out_file=None,
-                           feature_names=['Latir', 'Miar','Canta','Sem Som'],
-                           class_names=['Gato', 'Cachorro','Papagaio', 'Peixe'],
-                           filled=True, rounded=True,
-                           special_characters=True)
+feature_names=['Bark', 'Meow','Silent','Sing'],
+class_names=['Cat', 'Dog','Parrot', 'Fish'],
+filled=True, rounded=True,
+special_characters=True)
 graph = graphviz.Source(dot_data)
 
-# Salvando a imagem da árvore em um arquivo PNG
+#Saving the tree image to a PNG file
 graph.format = 'png'
-graph.render('arvore-decisao')
+graph.render('decision-tree')
 
-nova_amostra = [[0, 0,0,0]]
-resultado = clf.predict(nova_amostra)
-print(resultado)
+#To add a new sample to be classified
+new_sample = [[0, 0,0,0]]
+result = clf.predict(new_sample)
+print(result)

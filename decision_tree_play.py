@@ -27,6 +27,9 @@ print('='*40)
 X = df.drop('Jogar', axis=1)
 y = df['Jogar']
 
+# Definindo os pesos dos Atributos, lembrado que a soma tem que ser 100%
+weights = {'Tempo': 0.6, 'Humidade': 0.4}
+
 # Instanciando o modelo de classificação de árvore de decisão
 clf = DecisionTreeClassifier()
 
